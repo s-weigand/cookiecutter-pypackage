@@ -1,15 +1,14 @@
-from contextlib import contextmanager
-import shlex
-import os
-import sys
-import subprocess
-import yaml
 import datetime
-from cookiecutter.utils import rmtree
-
-from click.testing import CliRunner
-
 import importlib
+import os
+import shlex
+import subprocess
+import sys
+from contextlib import contextmanager
+
+import yaml
+from click.testing import CliRunner
+from cookiecutter.utils import rmtree
 
 
 @contextmanager
@@ -97,9 +96,7 @@ def test_bake_and_run_tests(cookies):
 
 def test_bake_withspecialchars_and_run_tests(cookies):
     """Ensure that a `full_name` with double quotes does not break setup.py"""
-    with bake_in_temp_dir(
-        cookies, extra_context={"full_name": 'name "quote" name'}
-    ) as result:
+    with bake_in_temp_dir(cookies, extra_context={"full_name": 'name "quote" name'}) as result:
         assert result.project.isdir()
         run_inside_dir("python setup.py test", str(result.project)) == 0
 
@@ -129,9 +126,7 @@ def test_bake_selecting_license(cookies):
         "GNU General Public License v3": "GNU GENERAL PUBLIC LICENSE",
     }
     for license, target_string in license_strings.items():
-        with bake_in_temp_dir(
-            cookies, extra_context={"open_source_license": license}
-        ) as result:
+        with bake_in_temp_dir(cookies, extra_context={"open_source_license": license}) as result:
             assert target_string in result.project.join("LICENSE").read()
             assert license in result.project.join("setup.py").read()
 
@@ -184,9 +179,7 @@ def test_bake_with_console_script_cli(cookies):
     runner = CliRunner()
     noarg_result = runner.invoke(cli.main)
     assert noarg_result.exit_code == 0
-    noarg_output = " ".join(
-        ["Replace this message by putting your code into", project_slug]
-    )
+    noarg_output = " ".join(["Replace this message by putting your code into", project_slug])
     assert noarg_output in noarg_result.output
     help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
@@ -205,11 +198,8 @@ def test_bake_with_argparse_console_script_cli(cookies):
     runner = CliRunner()
     noarg_result = runner.invoke(cli.main)
     assert noarg_result.exit_code == 0
-    noarg_output = " ".join(
-        ["Replace this message by putting your code into", project_slug]
-    )
+    noarg_output = " ".join(["Replace this message by putting your code into", project_slug])
     assert noarg_output in noarg_result.output
     help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
     assert "Show this message" in help_result.output
-

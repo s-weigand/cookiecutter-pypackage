@@ -1,7 +1,7 @@
-* Date you used Cookiecutter PyPackage:
-* Cookiecutter version used, if any:
-* Python version, if any:
-* Operating System:
+- Date you used Cookiecutter PyPackage:
+- Cookiecutter version used, if any:
+- Python version, if any:
+- Operating System:
 
 ### Description
 
