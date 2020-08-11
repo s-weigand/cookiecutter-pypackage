@@ -1,0 +1,5 @@
+*	text=lf
+*.bat	text eol=crlf
+
+{{cookiecutter.project_slug}}/docs/history.md	symlink=file
+{{cookiecutter.project_slug}}/docs/readme.rst	symlink=file
