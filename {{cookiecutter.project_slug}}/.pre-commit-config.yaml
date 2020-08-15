@@ -2,9 +2,13 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.1.0
     hooks:
+      - id: check-ast
+      - id: check-builtin-literals
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: debug-statements
+      - id: fix-encoding-pragma
+        args: [--remove]
   - repo: https://github.com/python/black
     rev: 19.10b0
     hooks:
@@ -34,6 +38,32 @@ repos:
       - id: interrogate
         args: [-v]
         exclude: "docs|tests"
+  - repo: local
+    hooks:
+      - id: rstcheck
+        name: rstcheck
+        entry: rstcheck
+        files: ".rst"
+        language: python
+        args: [--ignore-directives, highlight]
+        additional_dependencies: [rstcheck, sphinx]
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.5.1
+    hooks:
+      - id: rst-backticks
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v1.17.1
+    hooks:
+      - id: codespell
+        files: ".py|.rst"
+        args: [-L nnumber]
+
+  - repo: https://github.com/asottile/yesqa
+    rev: v1.2.1
+    hooks:
+      - id: yesqa
   - repo: local
     hooks:
       - id: tests
