@@ -19,7 +19,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ~/.cache/pre-commit
-          key: pre-commit-autoupdate
+          key: pre-commit-autoupdate-cookiecutter
       - name: Update pre-commit config packages
         uses: technote-space/create-pr-action@v2
         with:
