@@ -19,7 +19,7 @@ repos:
     hooks:
       - id: flake8
   - repo: https://github.com/PyCQA/isort
-    rev: 5.5.4
+    rev: 5.6.3
     hooks:
       - id: isort
         args: [-m, "3", -tc]
