@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name="cookiecutter-pypackage",
@@ -16,7 +16,7 @@ setup(
         "template",
         "package",
     ],
-    python_requires=">=3.5",
+    python_requires=">=3.6.1",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",
@@ -25,10 +25,10 @@ setup(
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Software Development",
