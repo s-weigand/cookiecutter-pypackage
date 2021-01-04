@@ -10,6 +10,7 @@ if "%SPHINXBUILD%" == "" (
 set SOURCEDIR=.
 set BUILDDIR=_build
 set SPHINXPROJ={{ cookiecutter.project_slug }}
+set API_TOCTREE_DIR=api
 
 if "%1" == "" goto help
 
@@ -31,6 +32,14 @@ goto end
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
+
+if "%1" == "clean_all" (
+	for /d %%i in (%BUILDDIR%\*) do rmdir /q /s %%i
+	del /q /s %BUILDDIR%\*
+	for /d %%i in (%API_TOCTREE_DIR%\*) do rmdir /q /s %%i
+	del /q /s %API_TOCTREE_DIR%\*
+	goto end
+)
 
 :end
 popd

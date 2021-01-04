@@ -9,7 +9,7 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    readme
    installation
    usage
-   modules
+   api_docs
    contributing
    history
 
