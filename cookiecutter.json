@@ -14,5 +14,6 @@
     "BSD license",
     "ISC license",
     "GNU General Public License v3"
-  ]
+  ],
+  "_copy_without_render": ["docs/_templates/autosummary"]
 }
