@@ -7,7 +7,7 @@
 
 [![Actions Status](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/workflows/Tests/badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/actions)
 [![Documentation Status](https://readthedocs.org/projects/{{ cookiecutter.project_slug_url }}/badge/?version=latest)](https://{{ cookiecutter.project_slug_url }}.readthedocs.io/en/latest/?badge=latest)
-[![codecov](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }})
+[![codecov](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/branch/main/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }})
 [![Documentation Coverage](https://raw.githubusercontent.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/main/docs/\_static/interrogate_badge.svg)](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }})
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo={{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }})](https://dependabot.com)
 
