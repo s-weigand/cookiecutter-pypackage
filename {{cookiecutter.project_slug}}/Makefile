@@ -6,7 +6,10 @@ import os, webbrowser, sys
 
 from urllib.request import pathname2url
 
-webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
+if sys.platform.startswith("win"):
+	os.startfile("file:" + pathname2url(os.path.abspath(sys.argv[1])))
+else:
+	webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
 endef
 export BROWSER_PYSCRIPT
 
