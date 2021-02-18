@@ -24,6 +24,11 @@ repos:
     rev: v2.2.1 # Use the sha or tag you want to point at
     hooks:
       - id: prettier
+  - repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v1.16.0
+    hooks:
+      - id: setup-cfg-fmt
+
   - repo: https://gitlab.com/pycqa/flake8
     rev: 3.8.4
     hooks:
