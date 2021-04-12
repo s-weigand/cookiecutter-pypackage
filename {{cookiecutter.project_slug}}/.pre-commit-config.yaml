@@ -11,7 +11,7 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.11.0
+    rev: v2.12.0
     hooks:
       - id: pyupgrade
         args: [--py36-plus]
@@ -48,7 +48,7 @@ repos:
       - id: pydocstyle
         exclude: "^docs|tests|setup.py"
   - repo: https://github.com/terrencepreilly/darglint
-    rev: v1.7.0
+    rev: v1.8.0
     hooks:
       - id: darglint
         exclude: "^docs|tests|setup.py"
