@@ -63,7 +63,7 @@ repos:
     rev: "3f92957478422df87bd730abde66f089cc1ee19b"
     hooks:
       - id: rstcheck
-        additional_dependencies: [rstcheck, sphinx]
+        additional_dependencies: [sphinx]
 
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.9.0
@@ -74,7 +74,8 @@ repos:
     rev: v2.1.0
     hooks:
       - id: codespell
-        files: ".py|.rst|.md"
+        types: [file]
+        types_or: [python, pyi, markdown, rst, jupyter]
         args: [-L nnumber]
 
   - repo: https://github.com/asottile/yesqa
