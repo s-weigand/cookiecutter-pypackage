@@ -58,3 +58,12 @@ exclude_lines = [
   'if __name__ == .__main__.:',
 ]
 
+
+[tool.mypy]
+exclude = "^docs/"
+ignore_missing_imports = true
+scripts_are_modules = true
+show_error_codes = true
+warn_unused_configs = true
+warn_unused_ignores = true
+strict_equality = true
