@@ -7,7 +7,7 @@
 
 
 {% block modules %}
-  {% if modules %}
+  {% if all_modules %}
 
   .. rubric:: Modules
 
@@ -15,7 +15,7 @@
     :toctree: {{ name }}
     :recursive:
 
-    {% for item in modules %}
+    {% for item in all_modules %}
       {{ item }}
     {%- endfor %}
 
@@ -25,13 +25,13 @@
 
 
 {% block attributes %}
-  {% if attributes %}
+  {% if all_attributes %}
   .. rubric:: Module Attributes
 
   .. autosummary::
       :toctree: {{ name }}
 
-      {% for item in attributes %}
+      {% for item in all_attributes %}
           {{ item }}
       {%- endfor %}
 
@@ -40,7 +40,7 @@
 {% endblock %}
 
 {% block functions %}
-  {% if functions %}
+  {% if all_functions %}
 
 Functions
 ---------
@@ -51,7 +51,7 @@ Functions
       :toctree: {{ name }}/functions
       :nosignatures:
 
-      {% for item in functions %}
+      {% for item in all_functions %}
         {{ item }}
       {%- endfor %}
 
@@ -60,7 +60,7 @@ Functions
 {% endblock %}
 
 {% block classes %}
-  {% if classes %}
+  {% if all_classes %}
 
 Classes
 -------
@@ -71,7 +71,7 @@ Classes
       :toctree: {{ name }}/classes
       :nosignatures:
 
-      {% for item in classes %}
+      {% for item in all_classes %}
         {{ item }}
       {%- endfor %}
 
@@ -81,7 +81,7 @@ Classes
 
 
 {% block exceptions %}
-  {% if exceptions %}
+  {% if all_exceptions %}
 
 Exceptions
 ----------
@@ -92,7 +92,7 @@ Exceptions
       :toctree: {{ name }}/exceptions
       :nosignatures:
 
-      {% for item in exceptions %}
+      {% for item in all_exceptions %}
           {{ item }}
       {%- endfor %}
 
