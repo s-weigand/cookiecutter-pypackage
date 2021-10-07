@@ -14,7 +14,6 @@ import click
 {% if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
 def main(args=None) -> int:
-
     """Console script for {{cookiecutter.project_slug}}.
 
     Parameters
