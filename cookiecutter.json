@@ -15,5 +15,6 @@
     "ISC license",
     "GNU General Public License v3"
   ],
+  "install_pre_commit": ["yes", "no"],
   "_copy_without_render": ["docs/_templates/autosummary"]
 }
