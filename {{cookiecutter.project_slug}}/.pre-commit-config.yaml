@@ -79,7 +79,7 @@ repos:
         args: [-L nnumber]
 
   - repo: https://github.com/asottile/yesqa
-    rev: v1.2.3
+    rev: v1.3.0
     hooks:
       - id: yesqa
         additional_dependencies: [flake8-docstrings]
