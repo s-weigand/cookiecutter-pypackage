@@ -1,1 +1,2 @@
 {{cookiecutter.project_slug}}/.github/dependabot.yml
+{{cookiecutter.project_slug}}/.pre-commit-config.yaml
