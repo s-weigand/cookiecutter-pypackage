@@ -38,7 +38,7 @@ Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/tarball/main
+    $ curl -OJL {{ cookiecutter.git_host_url}}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/tarball/main
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}
-.. _tarball: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/tarball/main
+.. _Github repo: {{ cookiecutter.git_host_url}}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}
+.. _tarball: {{ cookiecutter.git_host_url}}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/tarball/main
