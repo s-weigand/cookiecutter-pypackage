@@ -4,11 +4,39 @@
 import argparse
 
 {%- endif %}
+{%- if cookiecutter.command_line_interface|lower != 'typer' %}
 import sys
 
+{%- endif %}
 {%- if cookiecutter.command_line_interface|lower == 'click' %}
 import click
 
+{%- endif %}
+
+{%- if cookiecutter.command_line_interface|lower == 'typer' %}
+import typer
+
+
+app = typer.Typer()
+
+@app.command()
+def main(args=None) -> int:
+    """Console script for {{cookiecutter.project_slug}}.
+
+    Parameters
+    ----------
+    args : list, optional
+        Commandlineargs, by default None
+
+    Returns
+    -------
+    int
+        Returncode
+    """
+    typer.echo("Replace this message by putting your code into "
+               "{{cookiecutter.project_slug}}.cli.main")
+    typer.echo("See click documentation at https://typer.tiangolo.com/")
+    return 0
 {%- endif %}
 
 {% if cookiecutter.command_line_interface|lower == 'click' %}
@@ -52,4 +80,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+{%- if cookiecutter.command_line_interface|lower == 'typer' %}
+    app()
+{% else %}
     sys.exit(main())  # pragma: no cover
+{%- endif %}

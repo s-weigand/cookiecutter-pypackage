@@ -7,7 +7,12 @@
   "project_slug_url": "{{ cookiecutter.project_slug.replace('_', '-') }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "version": "0.0.1",
-  "command_line_interface": ["Click", "Argparse", "No command-line interface"],
+  "command_line_interface": [
+    "typer",
+    "Click",
+    "Argparse",
+    "No command-line interface"
+  ],
   "open_source_license": [
     "Apache Software License 2.0",
     "MIT license",
