@@ -12,10 +12,10 @@ def remove_file(filepath):
 def run_pre_commit():
     """Init git repository, install and run pre-commit."""
     print("Initializing git repository and running precommit on all files.")
-    subprocess.run("git init", cwd=PROJECT_DIRECTORY)
-    subprocess.run("git add .", cwd=PROJECT_DIRECTORY)
-    subprocess.run("pre-commit install", cwd=PROJECT_DIRECTORY)
-    subprocess.run("pre-commit run --all", cwd=PROJECT_DIRECTORY)
+    subprocess.run("git init", cwd=PROJECT_DIRECTORY, shell=True)
+    subprocess.run("git add .", cwd=PROJECT_DIRECTORY, shell=True)
+    subprocess.run("pre-commit install", cwd=PROJECT_DIRECTORY, shell=True)
+    subprocess.run("pre-commit run --all", cwd=PROJECT_DIRECTORY, shell=True)
 
 
 if __name__ == "__main__":
