@@ -60,7 +60,7 @@ repos:
     rev: 1.5.0
     hooks:
       - id: interrogate
-        args: [-v, --config=pyproject.toml, {{ cookiecutter.project_slug }}]
+        args: [-v, --config=pyproject.toml, "{{ cookiecutter.project_slug }}"]
         pass_filenames: false
 
   - repo: https://github.com/myint/rstcheck
@@ -94,6 +94,6 @@ repos:
       - id: interrogate
         name: Update interrogate badge
         args:
-          [-v, --config=pyproject.toml, -g, docs/_static/interrogate_badge.svg, {{ cookiecutter.project_slug }}]
+          [-v, --config=pyproject.toml, -g, docs/_static/interrogate_badge.svg, "{{ cookiecutter.project_slug }}"]
         pass_filenames: false
         stages: [push]
