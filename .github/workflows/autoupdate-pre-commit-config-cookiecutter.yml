@@ -27,7 +27,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACTION_TRIGGER_TOKEN }}
           EXECUTE_COMMANDS: |
             pip install pre-commit
-            pre-commit autoupdate -c \{\{cookiecutter.project_slug\}\}/.pre-commit-config.yaml || (exit 0);
+            cd \{\{cookiecutter.project_slug\}\}
+            pre-commit autoupdate || (exit 0);
           COMMIT_MESSAGE: "⬆️ UPGRADE: Autoupdate pre-commit config template"
           PR_BRANCH_NAME: "pre-commit-config-update-cookiecutter-${PR_ID}"
           PR_TITLE: "⬆️ UPGRADE: Autoupdate pre-commit config template"
