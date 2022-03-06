@@ -11,7 +11,7 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    usage
    api_docs
    contributing
-   history
+   changelog
 
 Indices and tables
 ==================
