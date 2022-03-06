@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       - id: check-ast
       - id: check-builtin-literals
@@ -11,21 +11,21 @@ repos:
         args: [--remove]
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.29.0
+    rev: v2.31.0
     hooks:
       - id: pyupgrade
         args: [--py36-plus]
   - repo: https://github.com/python/black
-    rev: 21.9b0
+    rev: 22.1.0
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.4.1 # Use the sha or tag you want to point at
+    rev: v2.5.1 # Use the sha or tag you want to point at
     hooks:
       - id: prettier
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v1.17.0
+    rev: v1.20.0
     hooks:
       - id: setup-cfg-fmt
 
@@ -34,15 +34,15 @@ repos:
     hooks:
       - id: flake8
   - repo: https://github.com/MarcoGorelli/absolufy-imports
-    rev: v0.3.0
+    rev: v0.3.1
     hooks:
       - id: absolufy-imports
   - repo: https://github.com/PyCQA/isort
-    rev: 5.9.3
+    rev: 5.10.1
     hooks:
       - id: isort
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.910
+    rev: v0.931
     hooks:
       - id: mypy
         exclude: "docs"
@@ -52,7 +52,7 @@ repos:
       - id: pydocstyle
         exclude: "^docs|tests|setup.py"
   - repo: https://github.com/terrencepreilly/darglint
-    rev: v1.8.0
+    rev: v1.8.1
     hooks:
       - id: darglint
         exclude: "^docs|tests|setup.py"
@@ -83,7 +83,7 @@ repos:
         args: [-L nnumber]
 
   - repo: https://github.com/asottile/yesqa
-    rev: v1.2.3
+    rev: v1.3.0
     hooks:
       - id: yesqa
         additional_dependencies: [flake8-docstrings]
