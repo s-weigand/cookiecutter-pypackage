@@ -60,7 +60,7 @@ repos:
         additional_dependencies: [flake8-docstrings]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.0.1
+    rev: v1.1.1
     hooks:
       - id: mypy
         exclude: "docs"
@@ -89,7 +89,7 @@ repos:
         pass_filenames: false
 
   - repo: https://github.com/myint/rstcheck
-    rev: "v6.1.1"
+    rev: "v6.1.2"
     hooks:
       - id: rstcheck
         additional_dependencies: [sphinx]
@@ -100,7 +100,7 @@ repos:
       - id: rst-backticks
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.2
+    rev: v2.2.4
     hooks:
       - id: codespell
         types: [file]
