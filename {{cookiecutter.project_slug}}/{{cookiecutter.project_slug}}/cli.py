@@ -1,4 +1,5 @@
 """Console script for {{cookiecutter.project_slug}}."""
+from __future__ import annotations
 
 {%- if cookiecutter.command_line_interface|lower == 'argparse' %}
 import argparse
@@ -20,21 +21,15 @@ import typer
 app = typer.Typer()
 
 @app.command()
-def main(args=None) -> int:
+def main() -> int:
     """Console script for {{cookiecutter.project_slug}}.
-
-    Parameters
-    ----------
-    args : list, optional
-        Commandlineargs, by default None
 
     Returns
     -------
     int
         Returncode
     """
-    typer.echo("Replace this message by putting your code into "
-               "{{cookiecutter.project_slug}}.cli.main")
+    typer.echo("Replace this message by putting your code into {{cookiecutter.project_slug}}.cli.main")
     typer.echo("See click documentation at https://typer.tiangolo.com/")
     return 0
 {%- endif %}
@@ -54,8 +49,7 @@ def main(args=None) -> int:
     int
         Returncode
     """
-    click.echo("Replace this message by putting your code into "
-               "{{cookiecutter.project_slug}}.cli.main")
+    click.echo("Replace this message by putting your code into {{cookiecutter.project_slug}}.cli.main")
     click.echo("See click documentation at https://click.palletsprojects.com/")
     return 0
 {%- endif %}
@@ -73,8 +67,7 @@ def main() -> int:
     args = parser.parse_args()
 
     print("Arguments: " + str(args._))
-    print("Replace this message by putting your code into "
-          "{{cookiecutter.project_slug}}.cli.main")
+    print("Replace this message by putting your code into {{cookiecutter.project_slug}}.cli.main")
     return 0
 {%- endif %}
 
