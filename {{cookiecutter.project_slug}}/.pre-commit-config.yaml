@@ -42,7 +42,7 @@ repos:
         language_version: python3
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0 # Use the sha or tag you want to point at
+    rev: v3.0.1 # Use the sha or tag you want to point at
     hooks:
       - id: prettier
 
@@ -55,7 +55,7 @@ repos:
   #     LINTER      #
   ###################
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.278
+    rev: v0.0.282
     hooks:
       - id: ruff
 
@@ -70,7 +70,7 @@ repos:
   #   LINTER DOCS   #
   ###################
   - repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         alias: flake8-docs
