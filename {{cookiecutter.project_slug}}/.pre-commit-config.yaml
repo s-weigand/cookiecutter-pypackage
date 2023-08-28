@@ -21,7 +21,7 @@ repos:
         args: [--in-place, --config, ./pyproject.toml]
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "0.13.1"
+    rev: "1.0.0"
     hooks:
       - id: pyproject-fmt
 
@@ -55,7 +55,7 @@ repos:
   #     LINTER      #
   ###################
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.285
+    rev: v0.0.286
     hooks:
       - id: ruff
 
