@@ -3,7 +3,7 @@ repos:
   #    FORMATTER    #
   ###################
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: check-ast
       - id: check-builtin-literals
@@ -21,7 +21,7 @@ repos:
         args: [--in-place, --config, ./pyproject.toml]
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "1.1.0"
+    rev: "1.2.0"
     hooks:
       - id: pyproject-fmt
 
@@ -47,7 +47,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v2.4.0
+    rev: v2.5.0
     hooks:
       - id: setup-cfg-fmt
 
@@ -55,7 +55,7 @@ repos:
   #     LINTER      #
   ###################
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.291
+    rev: v0.0.292
     hooks:
       - id: ruff
 
@@ -104,7 +104,7 @@ repos:
       - id: rst-backticks
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.5
+    rev: v2.2.6
     hooks:
       - id: codespell
         types: [file]
