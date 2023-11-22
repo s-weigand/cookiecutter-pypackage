@@ -82,7 +82,7 @@ repos:
           - "--allow-init-docstring=True"
           - "--skip-checking-short-docstrings=False"
         name: "flake8 lint docstrings"
-        exclude: "^(docs/|setup.py$|tests?/)"
+        exclude: "^(docs/|tests?/)"
         additional_dependencies: [pydoclint==0.0.10]
 
   - repo: https://github.com/econchick/interrogate
