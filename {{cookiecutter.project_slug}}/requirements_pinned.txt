@@ -1,0 +1,6 @@
+# runtime requirements
+# pinned so the bot can create PRs to test with new versions
+{% if cookiecutter.command_line_interface|lower == 'click' -%}
+Click==8.1.4{% endif %}
+{% if cookiecutter.command_line_interface|lower == 'typer' -%}
+typer==0.9.0{% endif %}

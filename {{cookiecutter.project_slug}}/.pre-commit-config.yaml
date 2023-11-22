@@ -8,10 +8,15 @@ repos:
       - id: check-ast
       - id: check-builtin-literals
       - id: end-of-file-fixer
+      - id: check-case-conflict
       - id: trailing-whitespace
       - id: debug-statements
       - id: fix-encoding-pragma
         args: [--remove]
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: no-commit-to-branch
+        args: [--branch, main]
 
   - repo: https://github.com/PyCQA/docformatter
     rev: v1.7.5
@@ -73,12 +78,12 @@ repos:
           - "--select=DOC"
           - "--extend-ignore=DOC502"
           - "--color=always"
-          - "--require-return-section-when-returning-none=False"
+          - "--require-return-section-when-returning-nothing=False"
           - "--allow-init-docstring=True"
           - "--skip-checking-short-docstrings=False"
         name: "flake8 lint docstrings"
         exclude: "^(docs/|tests?/)"
-        additional_dependencies: [pydoclint==0.0.10]
+        additional_dependencies: [pydoclint==0.3.8]
 
   - repo: https://github.com/econchick/interrogate
     rev: 1.5.0
@@ -86,17 +91,6 @@ repos:
       - id: interrogate
         args: [-v, --config=pyproject.toml, "{{ cookiecutter.project_slug }}"]
         pass_filenames: false
-
-  - repo: https://github.com/myint/rstcheck
-    rev: "v6.2.0"
-    hooks:
-      - id: rstcheck
-        additional_dependencies: [sphinx]
-
-  - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.10.0
-    hooks:
-      - id: rst-backticks
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
