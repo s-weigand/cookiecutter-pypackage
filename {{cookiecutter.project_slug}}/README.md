@@ -18,9 +18,6 @@
 
 {{ cookiecutter.project_short_description }}
 
-- Free software: {{ cookiecutter.open_source_license }}
-- Documentation: https://{{ cookiecutter.project_slug_url }}.readthedocs.io.
-
 ## Features
 
 - TODO

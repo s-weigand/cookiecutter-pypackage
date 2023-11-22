@@ -1,6 +1,3 @@
-```{highlight} shell
-```
-
 # Contributing
 
 Contributions are welcome, and they are greatly appreciated! Every little bit
@@ -55,44 +52,43 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for 
 
 2. Clone your fork locally:
 
-   ```
+   ```bash
    $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
    ```
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development:
+3. Install your local copy into a virtualenv. Assuming you have hatch installed (`pipx install hatch`),
+   this is how you set up your fork for local development:
 
-   ```
-   $ mkvirtualenv {{ cookiecutter.project_slug }}
+   ```bash
    $ cd {{ cookiecutter.project_slug_url }}/
-   $ pip install -e .
+   $ hatch shell
    ```
 
-4. install the `pre-commit` and `pre-push` hooks:
+4. Install the `pre-commit` hooks (to install `pre-commit` run `pipx install pre-commit`):
 
-   ```
-   $ pre-commit install && pre-commit install -t pre-push
+   ```bash
+   $ pre-commit install
    ```
 
 5. Create a branch for local development:
 
-   ```
+   ```bash
    $ git checkout -b name-of-your-bugfix-or-feature
    ```
 
    Now you can make your changes locally.
 
-6. When you're done making changes, check that your changes pass flake8 and the
-   tests, including testing other Python versions with tox:
+6. When you're done making changes, check that your changes pass the tests:
 
-   ```
-   $ tox
+   ```bash
+   $ pytest
    ```
 
    To get flake8 and tox, just pip install them into your virtualenv.
 
 7. Commit your changes and push your branch to GitHub:
 
-   ```
+   ```bash
    $ git add .
    $ git commit -m "Your detailed description of your changes."
    $ git push origin name-of-your-bugfix-or-feature
@@ -112,10 +108,9 @@ Before you submit a pull request, check that it meets these guidelines:
    {{ cookiecutter.git_host_url}}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }}/actions
    and make sure that the tests pass for all supported Python versions.
 
-## Tips
+> [!TIP]
+> To run a subset of tests:
 
-To run a subset of tests:
-
-```
-$ pytest tests.test_{{ cookiecutter.project_slug }}
-```
+> ```bash
+> $ pytest tests.test_{{ cookiecutter.project_slug }}
+> ```
