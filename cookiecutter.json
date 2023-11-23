@@ -21,11 +21,6 @@
     "GNU General Public License v3"
   ],
   "git_host_url": "https://github.com",
-  "install_pre_commit": [
-    "yes",
-    "no"
-  ],
-  "_copy_without_render": [
-    "docs/_templates/autosummary"
-  ]
+  "install_pre_commit": ["yes", "no"],
+  "_copy_without_render": ["docs/_templates/autosummary"]
 }

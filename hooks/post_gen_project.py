@@ -1,12 +1,10 @@
 #!/usr/bin/env python
-import os
+from __future__ import annotations
+
 import subprocess
+from pathlib import Path
 
-PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
-
-
-def remove_file(filepath):
-    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+PROJECT_DIRECTORY = Path().cwd()
 
 
 def run_pre_commit():
@@ -19,10 +17,8 @@ def run_pre_commit():
 
 
 if __name__ == "__main__":
-
     if "no" in "{{ cookiecutter.command_line_interface|lower }}":
-        cli_file = os.path.join("{{ cookiecutter.project_slug }}", "cli.py")
-        remove_file(cli_file)
-        remove_file(os.path.join("tests","test_cli.py"))
+        (PROJECT_DIRECTORY / "{{ cookiecutter.project_slug }}" / "cli.py").unlink(missing_ok=True)
+        (PROJECT_DIRECTORY / "tests" / "test_cli.py").unlink(missing_ok=True)
     if "{{cookiecutter.install_pre_commit}}" == "yes":
         run_pre_commit()

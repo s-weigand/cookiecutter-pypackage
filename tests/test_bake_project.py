@@ -1,16 +1,21 @@
 from __future__ import annotations
-from typing import Generator
+
 import datetime
 import os
 import shlex
 import subprocess
-from pathlib import Path
 import sys
 from contextlib import contextmanager
+from pathlib import Path
+from typing import TYPE_CHECKING
+from typing import Generator
 
-from cookiecutter.utils import rmtree
 import pytest
-from pytest_cookies.plugin import Result, Cookies
+from cookiecutter.utils import rmtree
+
+if TYPE_CHECKING:
+    from pytest_cookies.plugin import Cookies
+    from pytest_cookies.plugin import Result
 
 
 @contextmanager
@@ -19,7 +24,7 @@ def inside_dir(dirpath):
     Execute code from inside the given directory
     :param dirpath: String, path of the directory the command is being run.
     """
-    old_path = os.getcwd()
+    old_path = Path().cwd()
     try:
         os.chdir(dirpath)
         yield
@@ -156,11 +161,11 @@ def test_bake_with_no_console_script(cookies: Cookies):
     assert "cli.py" not in found_project_files
 
     setup_path = project_path / "pyproject.toml"
-    with open(setup_path, "r") as setup_file:
+    with setup_path.open() as setup_file:
         assert "[project.scripts]" not in setup_file.read()
 
 
-@pytest.mark.parametrize("cli_framework_name", ("typer", "Click", "Argparse"))
+@pytest.mark.parametrize("cli_framework_name", ["typer", "Click", "Argparse"])
 def test_bake_with_console_script_files(cookies: Cookies, cli_framework_name: str):
     context = {"command_line_interface": cli_framework_name}
     result = cookies.bake(extra_context=context)
@@ -169,5 +174,5 @@ def test_bake_with_console_script_files(cookies: Cookies, cli_framework_name: st
     assert "cli.py" in found_project_files
 
     setup_path = project_path / "pyproject.toml"
-    with open(setup_path, "r") as setup_file:
+    with setup_path.open() as setup_file:
         assert "[project.scripts]" in setup_file.read()
