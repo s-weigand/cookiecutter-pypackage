@@ -20,5 +20,7 @@ if __name__ == "__main__":
     if "no" in "{{ cookiecutter.command_line_interface|lower }}":
         (PROJECT_DIRECTORY / "{{ cookiecutter.project_slug }}" / "cli.py").unlink(missing_ok=True)
         (PROJECT_DIRECTORY / "tests" / "test_cli.py").unlink(missing_ok=True)
+    else:
+        (PROJECT_DIRECTORY / "tests" / "test_dummy.py").unlink(missing_ok=True)
     if "{{cookiecutter.install_pre_commit}}" == "yes":
         run_pre_commit()
