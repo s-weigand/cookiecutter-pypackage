@@ -14,7 +14,7 @@
 [![All Contributors](https://img.shields.io/github/all-contributors/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug_url }})](#contributors)
 {% endif %}
 
-[![image](https://img.shields.io/pypi/pyversions/ruff.svg)](https://pypi.python.org/pypi/ruff)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 {{ cookiecutter.project_short_description }}
 
