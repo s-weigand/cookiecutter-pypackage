@@ -31,7 +31,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -m pip install -U pip wheel hatch
+          python -m pip install -U pip wheel hatch pre-commit
           python -m pip install -r requirements_dev.txt
       - name: Run tests
         run: |

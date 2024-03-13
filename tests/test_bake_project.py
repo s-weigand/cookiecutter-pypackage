@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
 
 @contextmanager
-def inside_dir(dirpath):
+def inside_dir(dirpath: str | Path):
     """
     Execute code from inside the given directory
     :param dirpath: String, path of the directory the command is being run.
@@ -50,7 +50,7 @@ def bake_in_temp_dir(cookies, *args, **kwargs) -> Generator[Result, None, None]:
         rmtree(str(result.project_path))
 
 
-def run_inside_dir(command: str, dirpath):
+def run_inside_dir(command: str, dirpath: str | Path):
     """
     Run a command from inside a given directory, returning the exit status
     :param command: Command that will be executed
@@ -60,7 +60,7 @@ def run_inside_dir(command: str, dirpath):
         return subprocess.check_call(shlex.split(command))
 
 
-def check_output_inside_dir(command, dirpath):
+def check_output_inside_dir(command: str, dirpath: str | Path):
     "Run a command from inside a given directory, returning the command output"
     with inside_dir(dirpath):
         return subprocess.check_output(shlex.split(command))
@@ -101,6 +101,7 @@ def test_bake_and_run_tests(cookies: Cookies):
         assert result.project_path is not None
         assert result.project_path.is_dir()
         assert run_inside_dir("hatch run pytest", str(result.project_path)) == 0
+        assert run_inside_dir("pre-commit run --all -vv", str(result.project_path)) == 0
 
 
 def test_bake_withspecialchars_and_run_tests(cookies: Cookies):
