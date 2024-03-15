@@ -100,3 +100,6 @@ cookiecutter-pypackage-env/
 
 # IDE settings
 .vscode/
+
+# Venvs
+.venv
