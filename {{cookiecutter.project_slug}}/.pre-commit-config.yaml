@@ -84,7 +84,9 @@ repos:
         additional_dependencies: [pydoclint==0.3.8]
 
   - repo: https://github.com/econchick/interrogate
-    rev: 1.5.0
+    # Until there is a new release we need to use the a rev the default branch for py3.11+
+    # Ref.: https://github.com/econchick/interrogate/pull/157
+    rev: 237be78f9c6135fc1a620d211cdfdc5d3885082b
     hooks:
       - id: interrogate
         args: [-v, --config=pyproject.toml, "{{ cookiecutter.project_slug }}"]
