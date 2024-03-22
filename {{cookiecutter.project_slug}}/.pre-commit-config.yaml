@@ -84,13 +84,14 @@ repos:
         additional_dependencies: [pydoclint==0.3.8]
 
   - repo: https://github.com/econchick/interrogate
-    # Until there is a new release we need to use the a rev the default branch for py3.11+
-    # Ref.: https://github.com/econchick/interrogate/pull/157
     rev: 1.5.0
     hooks:
       - id: interrogate
         args: [-v, --config=pyproject.toml, "{{ cookiecutter.project_slug }}"]
         pass_filenames: false
+        # Until there is a new release we need to add 'pkg_resources' for py3.11+
+        # Ref.: https://github.com/econchick/interrogate/issues/162
+        additional_dependencies: ["setuptools; python_version>='3.11'"]
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
