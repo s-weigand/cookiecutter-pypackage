@@ -1,30 +1,38 @@
-name: "Update pre-commit config cookiecutter"
-# You need to set an access token as a secret ACTION_TRIGGER_TOKEN on this repo
-# in order for the PR to trigger the CI.
-# For more details see: https://github.com/technote-space/create-pr-action#github_token
-# If you don't want the PR to trigger the CI (NOT RECOMMENDED), comment out the GITHUB_TOKEN line.
+name: "Update pre-commit config"
 
 on:
   schedule:
     - cron: "0 7 * * 1" # At 07:00 on each Monday.
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   update-pre-commit:
+    permissions:
+      contents: write # for technote-space/create-pr-action to push code
+      pull-requests: write # for technote-space/create-pr-action to create a PR
     if: github.repository_owner == 's-weigand'
     name: Autoupdate pre-commit config
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v2
-      - uses: actions/cache@v2
+        uses: actions/setup-python@v4
         with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-autoupdate-template
+          python-version: 3.9
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pre-commit
+            ~/.cache/pip
+          key: pre-commit-autoupdate
+
       - name: Update pre-commit config packages
         uses: technote-space/create-pr-action@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.ACTION_TRIGGER_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           EXECUTE_COMMANDS: |
             pip install pre-commit
             pre-commit autoupdate || (exit 0);
