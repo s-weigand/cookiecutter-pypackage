@@ -3,7 +3,7 @@ repos:
   #    FORMATTER    #
   ###################
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "1.8.0"
+    rev: "502271e01fbf0988bee56db781e46830586a820c"
     hooks:
       - id: pyproject-fmt
 
@@ -43,7 +43,7 @@ repos:
   ###################
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: v0.4.3
+    rev: v0.4.4
     hooks:
       - id: ruff
         name: "ruff sort imports"
@@ -102,6 +102,6 @@ repos:
         args: [-L nnumber]
 
   - repo: https://github.com/rhysd/actionlint
-    rev: "v1.6.27"
+    rev: "v1.7.0"
     hooks:
       - id: actionlint
