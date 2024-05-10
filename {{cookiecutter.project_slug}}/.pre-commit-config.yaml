@@ -3,7 +3,7 @@ repos:
   #    FORMATTER    #
   ###################
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "502271e01fbf0988bee56db781e46830586a820c"
+    rev: "1.8.0"
     hooks:
       - id: pyproject-fmt
 
@@ -81,7 +81,7 @@ repos:
           - "--skip-checking-short-docstrings=False"
         name: "flake8 lint docstrings"
         exclude: "^(docs/|tests?/)"
-        additional_dependencies: [pydoclint==0.3.8]
+        additional_dependencies: [pydoclint==0.4.1]
 
   - repo: https://github.com/econchick/interrogate
     rev: 1.7.0
@@ -89,9 +89,6 @@ repos:
       - id: interrogate
         args: [-v, --config=pyproject.toml, "{{ cookiecutter.project_slug }}"]
         pass_filenames: false
-        # Until there is a new release we need to add 'pkg_resources' for py3.11+
-        # Ref.: https://github.com/econchick/interrogate/issues/162
-        additional_dependencies: ["setuptools; python_version>='3.11'"]
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
