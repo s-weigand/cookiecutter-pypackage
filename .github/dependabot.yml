@@ -8,7 +8,7 @@ updates:
       time: "04:00"
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
-    directory: "/{{cookiecutter.project_slug}}"
+    directory: "{{cookiecutter.project_slug}}/.github/workflows"
     schedule:
       interval: "weekly"
       time: "04:00"
