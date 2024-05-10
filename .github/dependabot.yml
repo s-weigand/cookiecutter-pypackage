@@ -6,3 +6,9 @@ updates:
     schedule:
       interval: "weekly"
       time: "04:00"
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/{{cookiecutter.project_slug}}"
+    schedule:
+      interval: "weekly"
+      time: "04:00"
