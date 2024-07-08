@@ -36,12 +36,12 @@ def main() -> int:
 
 {% if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
-def main(args=None) -> int:
+def main(args: list[str] | None = None) -> int:
     """Console script for {{cookiecutter.project_slug}}.
 
     Parameters
     ----------
-    args : list, optional
+    args : list[str] | None
         Commandlineargs, by default None
 
     Returns

@@ -163,7 +163,7 @@ def test_bake_with_no_console_script(cookies: Cookies):
 
     setup_path = project_path / "pyproject.toml"
     with setup_path.open() as setup_file:
-        assert "[project.scripts]" not in setup_file.read()
+        assert 'scripts."python_boilerplate"' not in setup_file.read()
 
 
 @pytest.mark.parametrize("cli_framework_name", ["typer", "Click", "Argparse"])
@@ -176,4 +176,4 @@ def test_bake_with_console_script_files(cookies: Cookies, cli_framework_name: st
 
     setup_path = project_path / "pyproject.toml"
     with setup_path.open() as setup_file:
-        assert "[project.scripts]" in setup_file.read()
+        assert 'scripts."python_boilerplate"' in setup_file.read()
