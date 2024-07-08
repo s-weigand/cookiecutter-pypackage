@@ -16,8 +16,6 @@ repos:
       - id: check-case-conflict
       - id: trailing-whitespace
       - id: debug-statements
-      - id: fix-encoding-pragma
-        args: [--remove]
       - id: mixed-line-ending
         args: [--fix=lf]
 
@@ -34,9 +32,10 @@ repos:
       - id: absolufy-imports
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8 # Use the sha or tag you want to point at
+    rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
+        additional_dependencies: ["prettier@3.3.2"]
 
   ###################
   #     LINTER      #
@@ -81,7 +80,7 @@ repos:
           - "--skip-checking-short-docstrings=False"
         name: "flake8 lint docstrings"
         exclude: "^(docs/|tests?/)"
-        additional_dependencies: [pydoclint==0.4.1]
+        additional_dependencies: [pydoclint==0.5.3]
 
   - repo: https://github.com/econchick/interrogate
     rev: 1.7.0
