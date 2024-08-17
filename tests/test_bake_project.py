@@ -8,12 +8,13 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 from typing import TYPE_CHECKING
-from typing import Generator
 
 import pytest
 from cookiecutter.utils import rmtree
 
 if TYPE_CHECKING:
+    from collections.abc import Generator
+
     from pytest_cookies.plugin import Cookies
     from pytest_cookies.plugin import Result
 
