@@ -3,7 +3,7 @@ repos:
   #    FORMATTER    #
   ###################
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "v2.4.3"
+    rev: "v2.5.0"
     hooks:
       - id: pyproject-fmt
 
@@ -20,7 +20,7 @@ repos:
         args: [--fix=lf]
 
   - repo: https://github.com/PyCQA/docformatter
-    rev: v1.7.5
+    rev: 06907d0
     hooks:
       - id: docformatter
         additional_dependencies: [tomli]
@@ -35,7 +35,7 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        additional_dependencies: ["prettier@3.3.2"]
+        additional_dependencies: ["prettier@3.3.3"]
 
   ###################
   #     LINTER      #
@@ -72,14 +72,14 @@ repos:
         alias: flake8-docs
         args:
           - "--select=DOC"
-          - "--extend-ignore=DOC502"
+          - "--extend-ignore=DOC502,DOC601,DOC603"
           - "--color=always"
           - "--require-return-section-when-returning-nothing=False"
           - "--allow-init-docstring=True"
           - "--skip-checking-short-docstrings=False"
         name: "flake8 lint docstrings"
         exclude: "^(docs/|tests?/)"
-        additional_dependencies: [pydoclint==0.5.3]
+        additional_dependencies: [pydoclint==0.5.9]
 
   - repo: https://github.com/econchick/interrogate
     rev: 1.7.0
@@ -100,3 +100,10 @@ repos:
     rev: "v1.7.3"
     hooks:
       - id: actionlint
+
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
+      - id: taplo-lint
+
