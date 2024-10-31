@@ -3,12 +3,12 @@ repos:
   #    FORMATTER    #
   ###################
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: "2.2.1"
+    rev: "v2.5.0"
     hooks:
       - id: pyproject-fmt
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-ast
       - id: check-builtin-literals
@@ -20,7 +20,7 @@ repos:
         args: [--fix=lf]
 
   - repo: https://github.com/PyCQA/docformatter
-    rev: v1.7.5
+    rev: 06907d0
     hooks:
       - id: docformatter
         additional_dependencies: [tomli]
@@ -35,14 +35,14 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        additional_dependencies: ["prettier@3.3.2"]
+        additional_dependencies: ["prettier@3.3.3"]
 
   ###################
   #     LINTER      #
   ###################
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: v0.6.1
+    rev: v0.7.1
     hooks:
       - id: ruff
         name: "ruff sort imports"
@@ -57,7 +57,7 @@ repos:
         name: "ruff lint"
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.11.1
+    rev: v1.13.0
     hooks:
       - id: mypy
         exclude: "docs"
@@ -72,14 +72,14 @@ repos:
         alias: flake8-docs
         args:
           - "--select=DOC"
-          - "--extend-ignore=DOC502"
+          - "--extend-ignore=DOC502,DOC601,DOC603"
           - "--color=always"
           - "--require-return-section-when-returning-nothing=False"
           - "--allow-init-docstring=True"
           - "--skip-checking-short-docstrings=False"
         name: "flake8 lint docstrings"
         exclude: "^(docs/|tests?/)"
-        additional_dependencies: [pydoclint==0.5.3]
+        additional_dependencies: [pydoclint==0.5.9]
 
   - repo: https://github.com/econchick/interrogate
     rev: 1.7.0
@@ -97,6 +97,13 @@ repos:
         args: [-L nnumber]
 
   - repo: https://github.com/rhysd/actionlint
-    rev: "v1.7.1"
+    rev: "v1.7.3"
     hooks:
       - id: actionlint
+
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
+      - id: taplo-lint
+
