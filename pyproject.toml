@@ -16,3 +16,19 @@ exclude = '''
   | \{\{cookiecutter.project_slug\}\}
 )/
 '''
+
+[dependency-groups]
+dev = [
+    "alabaster>=0.7.12",
+    "click>=8.1.4",
+    "cookiecutter>=2.6.0",
+    "cruft>=2.16.0",
+    "pytest>=5.3.1",
+    "pytest-cookies>=0.4.0",
+    "pytest-xdist>=3.8.0",
+    "rust-just>=1.46.0",
+    "tox>=3.14.1",
+    "typer>=0.9.0",
+    "watchdog>=0.9.0",
+    "watchfiles>=1.1.1",
+]
