@@ -22,5 +22,9 @@
   ],
   "git_host_url": "https://github.com",
   "install_pre_commit": ["yes", "no"],
-  "_copy_without_render": ["docs/_templates/autosummary"]
+  "_copy_without_render": [
+    "docs/_templates/autosummary",
+    "justfile",
+    "docs/justfile"
+  ]
 }

@@ -4,13 +4,11 @@ import datetime
 import os
 import shlex
 import subprocess
-import sys
 from contextlib import contextmanager
 from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
-from cookiecutter.utils import rmtree
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -45,10 +43,7 @@ def bake_in_temp_dir(cookies, *args, **kwargs) -> Generator[Result, None, None]:
     print("result.project_path: ".upper(), result.project_path)
     print("result.exeption: ".upper(), result.exception)
     print("#" * 50)
-    try:
-        yield result
-    finally:
-        rmtree(str(result.project_path))
+    yield result
 
 
 def run_inside_dir(command: str, dirpath: str | Path):
@@ -101,7 +96,7 @@ def test_bake_and_run_tests(cookies: Cookies):
     with bake_in_temp_dir(cookies) as result:
         assert result.project_path is not None
         assert result.project_path.is_dir()
-        assert run_inside_dir("hatch run pytest", str(result.project_path)) == 0
+        assert run_inside_dir("uv run pytest", str(result.project_path)) == 0
         assert run_inside_dir("pre-commit run --all -vv", str(result.project_path)) == 0
 
 
@@ -110,7 +105,7 @@ def test_bake_withspecialchars_and_run_tests(cookies: Cookies):
     with bake_in_temp_dir(cookies, extra_context={"full_name": 'name "quote" name'}) as result:
         assert result.project_path is not None
         assert result.project_path.is_dir()
-        assert run_inside_dir("hatch run pytest", str(result.project_path)) == 0
+        assert run_inside_dir("uv run pytest", str(result.project_path)) == 0
 
 
 def test_bake_with_apostrophe_and_run_tests(cookies: Cookies):
@@ -118,15 +113,13 @@ def test_bake_with_apostrophe_and_run_tests(cookies: Cookies):
     with bake_in_temp_dir(cookies, extra_context={"full_name": "O'connor"}) as result:
         assert result.project_path is not None
         assert result.project_path.is_dir()
-        assert run_inside_dir("hatch run pytest", str(result.project_path)) == 0
+        assert run_inside_dir("uv run pytest", str(result.project_path)) == 0
 
 
-def test_make_help(cookies: Cookies):
+def test_just_help(cookies: Cookies):
     with bake_in_temp_dir(cookies) as result:
-        # The supplied Makefile does not support win32
-        if sys.platform != "win32":
-            output = check_output_inside_dir("make help", str(result.project_path))
-            assert b"check code coverage quickly with the default Python" in output
+        output = check_output_inside_dir("just --list", str(result.project_path))
+        assert b"Check code coverage and open HTML report" in output
 
 
 @pytest.mark.parametrize(
@@ -159,7 +152,7 @@ def test_bake_with_no_console_script(cookies: Cookies):
     context = {"command_line_interface": "No command-line interface"}
     result = cookies.bake(extra_context=context)
     project_path, _, project_dir = project_info(result)
-    found_project_files = os.listdir(project_dir)
+    found_project_files = [f.name for f in project_dir.iterdir()]
     assert "cli.py" not in found_project_files
 
     setup_path = project_path / "pyproject.toml"
@@ -172,7 +165,7 @@ def test_bake_with_console_script_files(cookies: Cookies, cli_framework_name: st
     context = {"command_line_interface": cli_framework_name}
     result = cookies.bake(extra_context=context)
     project_path, _, project_dir = project_info(result)
-    found_project_files = os.listdir(project_dir)
+    found_project_files = [f.name for f in project_dir.iterdir()]
     assert "cli.py" in found_project_files
 
     setup_path = project_path / "pyproject.toml"

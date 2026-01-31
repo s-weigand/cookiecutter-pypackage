@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """Tests for `{{ cookiecutter.project_slug }}` package."""
 
 {%- if cookiecutter.command_line_interface|lower == 'click' %}

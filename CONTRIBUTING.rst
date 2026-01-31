@@ -90,7 +90,21 @@ development. Please note this documentation assumes you already have
 
 ::
 
-4. Create a branch for local development:
+4. Install ``just`` command runner (used for common development tasks):
+
+   .. code-block:: bash
+
+        $ uv tool install rust-just
+
+   After installation, you can see all available commands with:
+
+   .. code-block:: bash
+
+        $ just
+
+::
+
+5. Create a branch for local development:
 
    .. code-block:: bash
 
@@ -100,7 +114,7 @@ development. Please note this documentation assumes you already have
 
 ::
 
-5. When you're done making changes, check that your changes pass flake8. Since,
+6. When you're done making changes, check that your changes pass flake8. Since,
    this package contains mostly templates the flake should be run for tests
    directory:
 
@@ -110,34 +124,16 @@ development. Please note this documentation assumes you already have
 
 ::
 
-6. The next step would be to run the test cases. `cookiecutter-pypackage` uses
+7. The next step would be to run the test cases. `cookiecutter-pypackage` uses
    pytest, you can run PyTest. Before you run pytest you should ensure all
    dependancies are installed:
 
    .. code-block:: bash
 
-        $ pip install -rrequirements_dev.txt
-        $ pytest ./tests
+        $ uv run pytest ./tests
 
-   If you get any errors while installing cryptography package (something like
-   `#include <openssl/aes.h>`). Please update your pip version and try again:
-
-   .. code-block:: bash
-
-        # Update pip
-        $ pip install -U pip
 
 ::
-
-7. Before raising a pull request you should also run tox. This will run the
-   tests across different versions of Python:
-
-   .. code-block:: bash
-
-        $ tox
-
-   If you are missing flake8, pytest and/or tox, just `pip install` them into
-   your virtualenv.
 
 ::
 
@@ -204,7 +200,7 @@ To write and run your new test, follow these steps:
 
    .. code-block:: bash
 
-        $ pytest ./tests
+        $ uv run pytest ./tests
 
 ::
 
