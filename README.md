@@ -7,7 +7,7 @@ My opinionated fork of https://github.com/audreyr/cookiecutter-pypackage/
 Install the latest [cruft](https://github.com/cruft/cruft) if you haven't installed it yet
 
 ```console
-pip install -U cruft
+uv tool install -U cruft
 ```
 
 Generate a Python package project
